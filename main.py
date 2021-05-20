@@ -21,17 +21,26 @@ class Tickets:
         self.lblticket_no.place(x=50, y=150)
         self.txtticket_no =Entry(window)
         self.txtticket_no.place(x=300, y=150)
+
         #Combobox Creation
         self.Combobox = Combobox(root, values=['Soccer', 'Movie', 'Theatre'])
         self.Combobox.place(x=250, y=100, width=180)
+
         #Button Creation
         self.btncal = Button (window, text="Calculate Ticket", borderwidth="10", command=self.cost, fg="Navy", bg="Gold", font=12)
         self.btncal.place(x=50, y=250)
-        self.btnclear = Button (window, text="Clear Entries", borderwidth="10", fg="Navy", bg="Gold", font=12)
+        self.btnclear = Button (window, text="Clear Entries", borderwidth="10", fg="Navy", bg="Gold", font=12, command=self.button_clear)
         self.btnclear.place(x=350, y=250)
+
         #Display Creation
         self.res_lab = Label(window, text=" ", width="50", wraplength=245, textvariable=self.myresult)
         self.res_lab.place(x=50, y=350)
+
+    def button_clear(self):
+        self.txtcellno.delete(0, END)
+        self.txtticket_no.delete(0, END)
+        self.Combobox.delete(0, END)
+        #CLEARING THE INPUT FIELDS
 
        #Calculating button
     def cost (self):
